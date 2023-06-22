@@ -1,0 +1,79 @@
+<app-header title="Create Customers"></app-header>
+
+  <ion-content [fullscreen]="true">
+
+    <!-- Input primera pArte -->
+
+  <ion-list>
+
+   <ion-list-header>
+     <ion-label>Agregate</ion-label>
+   </ion-list-header>
+
+ </ion-list>
+
+  <form #formulario="ngForm"  (ngSubmit)="onSubmit()" >
+
+   <ion-list-header>
+     <ion-label>Formulario válido: {{ formulario.valid }}</ion-label>
+   </ion-list-header>
+
+   <ion-item>
+    <ion-label>Nombres :</ion-label>
+    <ion-input type="text"
+                name="name"
+                placeholder="Martina"
+                [(ngModel)]="usuario.name"
+                required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Apellidos :</ion-label>
+    <ion-input type="text"
+                name="lastName"
+                placeholder="Araus"
+                [(ngModel)]="usuario.lastName"
+                required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Dirección :</ion-label>
+    <ion-input type="text"
+                name="address"
+                placeholder="Km 1 1/2 Managua"
+                [(ngModel)]="usuario.address"
+                required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Cédula :</ion-label>
+    <ion-input type="text"
+                name="dni"
+                placeholder="000-0000-0000X"
+                [(ngModel)]="usuario.dni"
+                required></ion-input>
+  </ion-item>
+
+   <ion-item>
+     <ion-label>Email :</ion-label>
+     <ion-input type="email"
+                 name="email"
+                 placeholder="Email"
+                 [(ngModel)]="usuario.email"
+                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,5}$"
+                 required></ion-input> <!-- -->
+   </ion-item>
+
+   <ion-item>
+
+    <ion-label>Fecha :</ion-label>
+
+  </ion-item>
+
+  <ion-button type="submit" [disabled]="formulario.invalid" expand="block">
+     Login
+   </ion-button>
+
+ </form>
+
+</ion-content>

@@ -1,0 +1,19 @@
+<app-header title="Customers"></app-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <ion-button (click)="mostrarModal()" expand="block" class="ion-padding" >
+    Agregar
+  </ion-button>
+
+  <ion-searchbar placeholder="Default" (ionChange)="onSearchChange($event);" [debounce]="250" animated>
+  </ion-searchbar>
+
+  <ion-list>
+    <ion-item *ngFor="let client of clients | async">
+      <ion-label>{{client.nombre}}</ion-label>
+
+    </ion-item>
+  </ion-list>
+
+</ion-content>

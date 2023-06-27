@@ -1,0 +1,47 @@
+ion-content {
+
+  --background: var(--ion-color-primary);
+  --color: var(--ion-color-light-contrast);
+
+  ion-grid {
+    padding: 0;
+    margin: 0;
+
+    ion-row {
+      // height: 20vh;
+
+      ion-col {
+
+        padding: 0;
+
+        ion-button {
+          margin: 1vh;
+          width: 98%;
+          height: 70%;
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+ion-content[_ngcontent-ng-c3094284685] ion-grid[_ngcontent-ng-c3094284685]{
+
+  width: 100%;
+
+}
+
+.content {
+
+  margin: 0;
+  width: 100%;
+  height: 88vh;
+  background: var(--ion-color-light);
+  color: var(--ion-colo-light-contrast);
+  border-radius: 20px 20px 0 0;
+  //margin-top: 5vh;
+
+}

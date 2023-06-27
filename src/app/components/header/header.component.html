@@ -1,18 +1,24 @@
 <ion-header class="ion-padding" class="ion-no-border" translucent>
-  <ion-toolbar>
+  <ion-toolbar [color]="color ? color : 'primary'">
 
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/"></ion-back-button>
+    <ion-buttons *ngIf="backButton" slot="start">
+      <!-- Cerrar - Modal  -->
+      <ion-button *ngIf="isModal">
+        <ion-icon name="close-circle-outline"></ion-icon>
+      </ion-button>
+
+      <ion-back-button [defaultHref]="backButton"></ion-back-button>
     </ion-buttons>
 
-    <ion-title text-capitalize>{{title}}</ion-title>
+    <!-- Centrar Titulo - si existe la propiedad centerTitle -->
+    <ion-title *ngIf="title" [ngClass]="{'ion-text-center': centerTitle}" text-capitalize>{{title}}</ion-title>
 
     <ion-chip slot="end">
       <ion-avatar>
         <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
       </ion-avatar>
-      <ion-label>Avatar Chip</ion-label>
-      <ion-icon name="close-circle"></ion-icon>
+      <ion-label color="light">User Admin</ion-label>
+      <ion-icon name="close-circle" color="danger"></ion-icon>
     </ion-chip>
 
   </ion-toolbar>

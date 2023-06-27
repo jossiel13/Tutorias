@@ -8,6 +8,10 @@ import { Component, Input, OnInit } from '@angular/core';
 export class HeaderComponent  implements OnInit {
 
 @Input() title;
+@Input() color;
+@Input() backButton;
+@Input() isModal;
+@Input() centerTitle;
 
   constructor() { }
 

@@ -1,19 +1,74 @@
-<app-header title="Customers"></app-header>
+<app-header color="dark" title="Customers"></app-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
+  <!-- >Contenedor Aplicar Estilos -->
+  <div class="content">
 
-  <ion-button (click)="mostrarModal()" expand="block" class="ion-padding" >
-    Agregar
-  </ion-button>
+    <!-- Grid Dividir Panel - Contiene Tools  -->
+    <!-- Section se Botones y Buscar -->
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="4">
 
-  <ion-searchbar placeholder="Default" (ionChange)="onSearchChange($event);" [debounce]="250" animated>
-  </ion-searchbar>
+          <ion-button (click)="mostrarModal(null)" expand="block">
+            Create
+          </ion-button>
 
-  <ion-list>
-    <ion-item *ngFor="let client of clients | async">
-      <ion-label>{{client.nombre}}</ion-label>
+        </ion-col>
+        <ion-col size="8">
 
-    </ion-item>
-  </ion-list>
+          <ion-searchbar placeholder="Default" [debounce]="250" (ionInput)="onSearchChange($event)" animated>
+          </ion-searchbar>
 
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <!-- Grid Filtro de Informacion -->
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="4">
+          <!-- Diagrama Mostrar - Datos de Importancia -->
+
+        </ion-col>
+        <ion-col size="8">
+          <!-- Mostrar Listado de Cliente -->
+            <ion-row *ngIf="(client$|async)?.length === 0" class="ion-text-center">
+              <ion-col size="12">
+                <ion-label color="danger">
+                  <h3>No Data</h3>
+                </ion-label>
+              </ion-col>
+            </ion-row>
+
+
+          <ion-list>
+            <ion-item-sliding *ngFor="let client of (client$ | async) | filtro:textoBusqueda">
+
+              <ion-item>
+                <ion-label>
+
+                  <h3>{{client.name}}, {{client.lastName}}</h3>
+                  <p>{{client.email}}</p>
+
+                </ion-label>
+
+                <ion-label slot="end" class="ion-text-end text-small">{{client.dateCreate}}</ion-label>
+
+                <ion-buttons slot="end">
+                  <ion-button (click)="presentPopover($event,client)">
+                    <ion-icon slot="icon-only" name="ellipsis-horizontal-outline"></ion-icon>
+                  </ion-button>
+                </ion-buttons>
+
+              </ion-item>
+
+            </ion-item-sliding>
+          </ion-list>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </div>
 </ion-content>

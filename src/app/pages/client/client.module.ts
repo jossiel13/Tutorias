@@ -8,6 +8,7 @@ import { ClientPageRoutingModule } from './client-routing.module';
 
 import { ClientPage } from './client.page';
 import { ComponentsModule } from '../../components/components.module';
+import { PipeModule } from 'src/app/pipe/pipe.module';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { ComponentsModule } from '../../components/components.module';
     FormsModule,
     IonicModule,
     ClientPageRoutingModule,
-    ComponentsModule
+    ComponentsModule,
+    PipeModule
   ],
   declarations: [ClientPage]
 })

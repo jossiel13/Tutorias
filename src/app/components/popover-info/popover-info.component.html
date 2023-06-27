@@ -1,0 +1,40 @@
+<ion-row *ngIf="!isDelete" class="ion-justify-content-center">
+    <ion-list>
+        <ion-item detail>
+            <ion-icon (click)="clickView(customer)" name="eye-outline"></ion-icon>
+        </ion-item>
+        <ion-item detail>
+            <ion-icon (click)="clickEdit(customer)" name="create-outline"></ion-icon>
+        </ion-item>
+        <ion-item detail>
+            <ion-icon (click)="clickDelete(customer)" name="trash-outline"></ion-icon>
+        </ion-item>
+    </ion-list>
+</ion-row>
+
+<ion-row *ngIf="isDelete" class="ion-justify-content-center">
+
+  <ion-title class="ion-text-center" style="margin: 10px 0 0 0;" text-capitalize>Eliminar a este Cliente</ion-title>
+
+  <ion-row class="ion-justify-content-center">
+    <ion-item>
+      <ion-list-header class="ion-text-center">
+        <ion-label><h3>¿ Estas seguro ?</h3></ion-label>
+      </ion-list-header>
+    </ion-item>
+  </ion-row>
+
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="6">
+        <ion-item>
+          <ion-icon (click)="onDismiss()" name="create-outline"></ion-icon>
+      </ion-item>
+      </ion-col>
+      <ion-col size="6">
+        <ion-item>
+          <ion-icon (click)="deleteClient(customer)" name="trash-outline"></ion-icon>
+      </ion-item>
+      </ion-col>
+    </ion-row>
+
+</ion-row>

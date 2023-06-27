@@ -5,17 +5,22 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FiltroPipe implements PipeTransform {
 
-  transform(value: any[], texto:string): any[] {
+  transform(allData: any[], textoBusqueda: string): any[] {
+
+    console.log(allData);
 
 
-    if (texto === '') { return value; } //cadena vacia retorna all data
+    console.log(textoBusqueda);
 
-    if (!value) { return value }//Distinto de cadena retorna all data
+    if (textoBusqueda === '') { return allData; } //cadena vacia retorna all data
+
+    if (!allData) { return allData }//Distinto de cadena retorna all data
 
     //Sensitive Case "JavaScript" conversion
-    texto = texto.toLocaleLowerCase();
+    textoBusqueda = textoBusqueda.toLocaleLowerCase();
 
-    return value.filter(item => item.value.toLowerCase().includes(texto));
+    return allData.filter(item =>
+      item.name.toLowerCase().includes(textoBusqueda));
 
   }
 
